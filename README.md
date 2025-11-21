@@ -53,15 +53,15 @@ integração.
     1- banco por ser em meória perder os dados a cada reinicialização
     2- para segurar não duplciação de dados, as tabelas são excluidas na etapa 1 do processo
 
-# executar importação do arquivo CSV
- 1.1- colocar o arquivo movielist.csv na raiz do projeto 
-   1.1- IMPORTANTE!! o arquivo precisa ter esse nome ou a importação não ocorrerá
-   1.2- O arquivo CSV deve ter o  formato separado por ; (ponto e vírgula)
+# Executar importação do arquivo CSV
+ - 1.1 colocar o arquivo movielist.csv na raiz do projeto 
+   - 1.1 IMPORTANTE!! o arquivo precisa ter esse nome ou a importação não ocorrerá
+   - 1.2 O arquivo CSV deve ter o  formato separado por ; (ponto e vírgula)
         year;title;studios;producers;winner
         1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
         1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
-2- com o arquivo na pasta execute o comando abaixo
-   2.1- npm start
+- 2 com o arquivo na pasta execute o comando abaixo
+   - 2.1 npm start
 
 3- a importação ocorre em 4 etapas abaixo com  mensagem 5 de serviço disponível
   3.1-  0 - Iniciando validação do arquivo Csv existe
