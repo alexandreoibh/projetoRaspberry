@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 # projetoRaspberry
 Requisito do teste  Golden Raspberry Awards API
 
 
+=======
+>>>>>>> e4bb45e01e86d56aa9e61dae942f6da70d7f923f
 # Requisito do teste  Golden Raspberry Awards API
 - Desenvolva uma API RESTful para possibilitar a leitura da lista de indicados e vencedores da 
 categoria Pior Filme do Golden Raspberry Awards. 
@@ -26,6 +29,7 @@ integração.
 - npm ou yarn
 
 # Arquitetura Projeto
+<<<<<<< HEAD
 ├── src/
 │   │──app/
 │       ├── controllers/ 
@@ -44,6 +48,26 @@ integração.
 ├── app.js # Arquivo principal
 ├── package.json
 └── README.md
+=======
+- ├── src/
+- │   │──app/
+- │       ├── controllers/ 
+- │            ├── helpers.js
+- │            └── movieController.js # Controladores das rotas
+- │       ├── models/
+- │           └── movieModel.js # Modelos de dados e acesso ao banco
+- ├── config/
+- │   └── database.js # Configuração do banco de dados
+- ├── routes/
+- │   └── movieRoute.js # Definição das rotas
+- ├── services/
+- │   ├── importService.js # Lógica de negócio (importação de CSV, etc.)
+- │   └── utilsServices.js
+- ├── movielist.csv  # Arquivo de dados (a ser colocado na raiz)
+- ├── app.js # Arquivo principal
+- ├── package.json
+- └── README.md
+>>>>>>> e4bb45e01e86d56aa9e61dae942f6da70d7f923f
 
 # Instalação 
 1- Clone o projeto em seu computador
@@ -52,6 +76,7 @@ integração.
  1.3- npm install
 
 # Banco de dados
+<<<<<<< HEAD
 1- utilizado banco SQLite par atender os requisitos 
    # tabelas
     1- banco por ser em meória perder os dados a cada reinicialização
@@ -76,12 +101,39 @@ integração.
         5 - Serviço REST da Api Online e Disponível
 
 4- após a conclusão da etapa lista uma mensagem de API disponível para consulta dos dados
+=======
+- 1- utilizado banco SQLite par atender os requisitos 
+   # Tabelas
+    - 1- banco por ser em meória perder os dados a cada reinicialização
+    - 2- para segurar não duplciação de dados, as tabelas são excluidas na etapa 1 do processo
+
+# Executar importação do arquivo CSV
+ - 1.1 colocar o arquivo movielist.csv na raiz do projeto 
+   - 1.1 IMPORTANTE!! o arquivo precisa ter esse nome ou a importação não ocorrerá
+   - 1.2 O arquivo CSV deve ter o  formato separado por ; (ponto e vírgula)
+       -  year;title;studios;producers;winner
+       -  1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
+       -  1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
+- 2 com o arquivo na pasta execute o comando abaixo
+   - 2.1 npm start
+
+- 3 a importação ocorre em 4 etapas abaixo com  mensagem 5 de serviço disponível
+  - 3.1  0 - Iniciando validação do arquivo Csv existe
+        - 1 - Iniciando Limpeza das tabelas
+        - 2 - Iniciando carga do arquivo CSV
+        - 3 - Iniciando Tratamento de Produtores por Filme
+        - 4 - Iniciando carga do dashboard
+        - 5 - Serviço REST da Api Online e Disponível
+
+- 4- após a conclusão da etapa lista uma mensagem de API disponível para consulta dos dados
+>>>>>>> e4bb45e01e86d56aa9e61dae942f6da70d7f923f
   validar a mensagem Service OnLine Port 3001 é importante para saber se está rodando 
 
 
         
 # Endpoints da API
 # GET 
+<<<<<<< HEAD
   /api/v1/movies?page=1&limit=10&orderBy=year
    └── criado para validar a carga do CSV, não contém a lista de filme tratada para um único produtor
    └── json
@@ -108,6 +160,36 @@ integração.
   /api/v1/movies/goldenAwards
    └── gera o resultado final para o requisito
     └──{
+=======
+-  /api/v1/movies?page=1&limit=10&orderBy=year
+-    └── criado para validar a carga do CSV, não contém a lista de filme tratada para um único produtor
+
+ {
+  "total": 206,
+  "limit": 10,
+  "offset": 0,
+  "page": 1,
+  "totalPages": 21,
+  "data": [
+    {
+      "id": 1,
+      "year": 1980,
+      "title": "Can't Stop the Music",
+      "studios": "Associated Film Distribution",
+      "producers": "Allan Carr",
+      "winner": true,
+      "created_date": "2024-01-01 00:00:00"
+    }
+  ]
+}
+
+            
+# GET
+-   /api/v1/movies/goldenAwards
+-   └── gera o resultado final para o requisito
+
+    {
+>>>>>>> e4bb45e01e86d56aa9e61dae942f6da70d7f923f
         "min": [
             {
             "producer": "Producer A",
