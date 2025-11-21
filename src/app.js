@@ -4,7 +4,7 @@ require('./config/database');
 const csvImportService = require('./services/importService');
 const movieRoutes = require('./routes/movieRoute');
 const app = express();
-const port = 3000;
+const port = 3001;
 global.appLoading = true;
 
 app.use('/api/v1/movies', movieRoutes);
