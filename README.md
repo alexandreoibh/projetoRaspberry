@@ -102,9 +102,10 @@ integração.
 
             
 # GET
-  /api/v1/movies/goldenAwards
-   └── gera o resultado final para o requisito
-    └──{
+-   /api/v1/movies/goldenAwards
+-   └── gera o resultado final para o requisito
+
+    {
         "min": [
             {
             "producer": "Producer A",
