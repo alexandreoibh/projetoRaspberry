@@ -78,14 +78,14 @@ integração.
         
 # Endpoints da API
 # GET 
-  /api/v1/movies?page=1&limit=10&orderBy=year
-   └── criado para validar a carga do CSV, não contém a lista de filme tratada para um único produtor
-   └── json
-         {
-            "total": 206,
-            "limit": 10,
-            "offset": 0,
-            "page": 1,
+ -  /api/v1/movies?page=1&limit=10&orderBy=year
+ -   └── criado para validar a carga do CSV, não contém a lista de filme tratada para um único produtor
+ -   └── json
+   -       {
+     -        "total": 206,
+       -      "limit": 10,
+         -    "offset": 0,
+           -  "page": 1,
             "totalPages": 21,
             "data": [
                 {
