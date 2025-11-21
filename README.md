@@ -42,10 +42,10 @@ integração.
 - └── README.md
 
 # Instalação 
-1- Clone o projeto em seu computador
- 1.1- git clone <url>
- 1.2- cd <diretorio>
- 1.3- npm install
+- 1- Clone o projeto em seu computador
+ - 1.1- git clone https://github.com/alexandreoibh/projetoRaspberry.git
+ - 1.2- cd <diretorio>
+ - 1.3- npm install
 
 # Banco de dados
 - 1- utilizado banco SQLite par atender os requisitos 
