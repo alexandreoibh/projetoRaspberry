@@ -22,24 +22,24 @@ integração.
 - npm ou yarn
 
 # Arquitetura Projeto
-├── src/
-│   │──app/
-│       ├── controllers/ 
-│            ├── helpers.js
-│            └── movieController.js # Controladores das rotas
-│       ├── models/
-│           └── movieModel.js # Modelos de dados e acesso ao banco
-├── config/
-│   └── database.js # Configuração do banco de dados
-├── routes/
-│   └── movieRoute.js # Definição das rotas
-├── services/
-│   ├── importService.js # Lógica de negócio (importação de CSV, etc.)
-│   └── utilsServices.js
-├── movielist.csv  # Arquivo de dados (a ser colocado na raiz)
-├── app.js # Arquivo principal
-├── package.json
-└── README.md
+-├── src/
+-│   │──app/
+-│       ├── controllers/ 
+-│            ├── helpers.js
+-│            └── movieController.js # Controladores das rotas
+-│       ├── models/
+-│           └── movieModel.js # Modelos de dados e acesso ao banco
+-├── config/
+-│   └── database.js # Configuração do banco de dados
+-├── routes/
+-│   └── movieRoute.js # Definição das rotas
+-├── services/
+-│   ├── importService.js # Lógica de negócio (importação de CSV, etc.)
+-│   └── utilsServices.js
+-├── movielist.csv  # Arquivo de dados (a ser colocado na raiz)
+-├── app.js # Arquivo principal
+-├── package.json
+-└── README.md
 
 # Instalação 
 1- Clone o projeto em seu computador
