@@ -5,8 +5,8 @@ Requisito do teste  Golden Raspberry Awards API
 # Requisito do teste  Golden Raspberry Awards API
 - Desenvolva uma API RESTful para possibilitar a leitura da lista de indicados e vencedores da 
 categoria Pior Filme do Golden Raspberry Awards. 
--1. Ler o arquivo CSV dos filmes e inserir os dados em uma base de dados ao iniciar a aplicação. 
--2. Obter o produtor com maior intervalo entre dois prêmios consecutivos, e o que obteve dois 
+- Ler o arquivo CSV dos filmes e inserir os dados em uma base de dados ao iniciar a aplicação. 
+- Obter o produtor com maior intervalo entre dois prêmios consecutivos, e o que obteve dois 
 prêmios mais rápido, seguindo a especificação de formato definida na página 2. 
 
 # Requisitos não funcionais do sistema 
