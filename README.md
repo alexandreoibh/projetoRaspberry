@@ -22,17 +22,17 @@ integração.
 - npm ou yarn
 
 # Arquitetura Projeto
-- src/
--   │──app/
--       ├── controllers/ 
--            ├── helpers.js
--            └── movieController.js # Controladores das rotas
--       ├── models/
--           └── movieModel.js # Modelos de dados e acesso ao banco
-- ── config/
--   └── database.js # Configuração do banco de dados
-- ── routes/
--   └── movieRoute.js # Definição das rotas
+- ├── src/
+- │   │──app/
+- │       ├── controllers/ 
+- │            ├── helpers.js
+- │            └── movieController.js # Controladores das rotas
+- │       ├── models/
+- │           └── movieModel.js # Modelos de dados e acesso ao banco
+- ├── config/
+- │   └── database.js # Configuração do banco de dados
+- ├── routes/
+- │   └── movieRoute.js # Definição das rotas
 - ├── services/
 - │   ├── importService.js # Lógica de negócio (importação de CSV, etc.)
 - │   └── utilsServices.js
