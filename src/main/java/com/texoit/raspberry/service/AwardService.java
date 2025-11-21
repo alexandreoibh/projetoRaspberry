@@ -75,7 +75,7 @@ public class AwardService {
         }
         
         // Split by comma or " and " while handling multiple separators
-        String[] parts = producers.split(",| and ");
+        String[] parts = producers.split(",|\\s+and\\s+");
         
         return Arrays.stream(parts)
             .map(String::trim)
