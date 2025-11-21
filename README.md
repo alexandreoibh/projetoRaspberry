@@ -63,15 +63,15 @@ integração.
 - 2 com o arquivo na pasta execute o comando abaixo
    - 2.1 npm start
 
-3- a importação ocorre em 4 etapas abaixo com  mensagem 5 de serviço disponível
-  3.1-  0 - Iniciando validação do arquivo Csv existe
-        1 - Iniciando Limpeza das tabelas
-        2 - Iniciando carga do arquivo CSV
-        3 - Iniciando Tratamento de Produtores por Filme
-        4 - Iniciando carga do dashboard
-        5 - Serviço REST da Api Online e Disponível
+- 3 a importação ocorre em 4 etapas abaixo com  mensagem 5 de serviço disponível
+  - 3.1  0 - Iniciando validação do arquivo Csv existe
+        - 1 - Iniciando Limpeza das tabelas
+        - 2 - Iniciando carga do arquivo CSV
+        - 3 - Iniciando Tratamento de Produtores por Filme
+        - 4 - Iniciando carga do dashboard
+        - 5 - Serviço REST da Api Online e Disponível
 
-4- após a conclusão da etapa lista uma mensagem de API disponível para consulta dos dados
+- 4- após a conclusão da etapa lista uma mensagem de API disponível para consulta dos dados
   validar a mensagem Service OnLine Port 3001 é importante para saber se está rodando 
 
 
