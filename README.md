@@ -57,9 +57,9 @@ integração.
  - 1.1 colocar o arquivo movielist.csv na raiz do projeto 
    - 1.1 IMPORTANTE!! o arquivo precisa ter esse nome ou a importação não ocorrerá
    - 1.2 O arquivo CSV deve ter o  formato separado por ; (ponto e vírgula)
-        year;title;studios;producers;winner
-        1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
-        1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
+       -  year;title;studios;producers;winner
+       -  1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
+       -  1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
 - 2 com o arquivo na pasta execute o comando abaixo
    - 2.1 npm start
 
