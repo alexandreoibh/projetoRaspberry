@@ -78,28 +78,29 @@ integração.
         
 # Endpoints da API
 # GET 
- -  /api/v1/movies?page=1&limit=10&orderBy=year
- -   └── criado para validar a carga do CSV, não contém a lista de filme tratada para um único produtor
- -   └── json
-   -       {
-     -        "total": 206,
-       -      "limit": 10,
-         -    "offset": 0,
-           -  "page": 1,
-            "totalPages": 21,
-            "data": [
-                {
-                "id": 1,
-                "year": 1980,
-                "title": "Can't Stop the Music",
-                "studios": "Associated Film Distribution",
-                "producers": "Allan Carr",
-                "winner": true,
-                "created_date": "2024-01-01 00:00:00"
-                }
-            ]
+-  /api/v1/movies?page=1&limit=10&orderBy=year
+-    └── criado para validar a carga do CSV, não contém a lista de filme tratada para um único produtor
 
-            }
+ {
+  "total": 206,
+  "limit": 10,
+  "offset": 0,
+  "page": 1,
+  "totalPages": 21,
+  "data": [
+    {
+      "id": 1,
+      "year": 1980,
+      "title": "Can't Stop the Music",
+      "studios": "Associated Film Distribution",
+      "producers": "Allan Carr",
+      "winner": true,
+      "created_date": "2024-01-01 00:00:00"
+    }
+  ]
+}
+
+            
 # GET
   /api/v1/movies/goldenAwards
    └── gera o resultado final para o requisito
