@@ -48,10 +48,10 @@ integração.
  1.3- npm install
 
 # Banco de dados
-1- utilizado banco SQLite par atender os requisitos 
-   # tabelas
-    1- banco por ser em meória perder os dados a cada reinicialização
-    2- para segurar não duplciação de dados, as tabelas são excluidas na etapa 1 do processo
+- 1- utilizado banco SQLite par atender os requisitos 
+   # Tabelas
+    - 1- banco por ser em meória perder os dados a cada reinicialização
+    - 2- para segurar não duplciação de dados, as tabelas são excluidas na etapa 1 do processo
 
 # Executar importação do arquivo CSV
  - 1.1 colocar o arquivo movielist.csv na raiz do projeto 
