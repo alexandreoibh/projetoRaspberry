@@ -180,6 +180,7 @@ class ImportarCsv {
         console.log('1.1 - Concluido limpeza com sucesso');
 
         console.log('2 - Iniciando carga do arquivo CSV');
+        console.log('--->Em andamento, aguarde...');
         const resultImport = await this.cargaCsv(csvPath);
         if (!resultImport.success) {
             console.log('2.1 - Falha na carga do arquivo CSV:', resultImport.message);
@@ -188,10 +189,12 @@ class ImportarCsv {
         console.log('2.1 - Concluido carga do arquivo CSV', resultImport);
 
         console.log('3 - Iniciando Tratamento de Produtores por Filme');
+        console.log('--->Em andamento, aguarde...');
         await this.cargaProducerByMovie();
         console.log('3.1 - Concluido Tratamento de Produtores por Filme');
 
         console.log('4 - Iniciando carga do dashboard');
+        console.log('--->Em andamento, aguarde...');
         await this.cargaDashboard();
         console.log('4.1 - Concluido carga do dashboard');
 
