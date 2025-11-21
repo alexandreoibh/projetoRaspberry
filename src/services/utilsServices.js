@@ -80,6 +80,28 @@ class utilsService {
             message: `CSV válido. Todas as colunas obrigatórias estão presentes.`
         });
     }
+
+    async resolveProducers(producers) {
+        try {
+            if (!producers) return;
+
+            let tratado = producers.replace(/\s+&\s+/g, ',')
+                .replace(/\s+\/\s+/g, ',')
+                .replace(/\band\b/gi, ',')
+                .replace(/;/g, ',').trim();
+
+            const uniqueProducers = tratado.split(',')
+                .map(item => item.trim())
+                .filter(item => item !== '')
+                .filter((item, index, self) =>
+                    self.findIndex(i => i.toLowerCase() === item.toLowerCase()) === index
+                );
+            return uniqueProducers;
+
+        } catch (error) {
+            console.error('Erro ao resolver produtores:', error);
+        }
+    }
 }
 
 module.exports = new utilsService();

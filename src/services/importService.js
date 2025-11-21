@@ -100,35 +100,13 @@ class ImportarCsv {
         }
     }
 
-    resolveProducers(producers) {
-        try {
-            if (!producers) return;
-
-            let tratado = producers.replace(/\s+&\s+/g, ',')
-                .replace(/\s+\/\s+/g, ',')
-                .replace(/\band\b/gi, ',')
-                .replace(/;/g, ',').trim();
-
-            const uniqueProducers = tratado.split(',')
-                .map(item => item.trim())
-                .filter(item => item !== '')
-                .filter((item, index, self) =>
-                    self.findIndex(i => i.toLowerCase() === item.toLowerCase()) === index
-                );
-            return uniqueProducers;
-
-        } catch (error) {
-            console.error('Erro ao resolver produtores:', error);
-        }
-    }
-
     async cargaProducerByMovie() {
         try {
             let listProducers = await movieModel.getAllWinners();
 
             for (const item of listProducers) {
                 // console.log('item', item);
-                const uniqueProducers = this.resolveProducers(item.producers);
+                const uniqueProducers = await utilsService.resolveProducers(item.producers);
                 for (const uniqueProducer of uniqueProducers) {
                     // console.log('itemProducers', uniqueProducer);
 
