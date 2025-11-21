@@ -50,19 +50,26 @@ integração.
 # Banco de dados
 - 1- utilizado banco SQLite par atender os requisitos 
    # Tabelas
-    - 1- banco por ser em meória perder os dados a cada reinicialização
-    - 2- para segurar não duplciação de dados, as tabelas são excluidas na etapa 1 do processo
+    - 1- banco por ser em memória perde os dados a cada reinicialização
+    - 2- para segurar não duplicação de dados, as tabelas são excluidas na etapa 1 do processo
+
+
+# Arquivo CSV
+- 1- Nome padrão do arquivo deve ser movielist.csv
+- 2- Existe validação desse nome da importação, sendo diferente o processo é interrompido
+- 3- O padrão das colunas é importante MANTER conforme modelo abaixo
+  - 3.1 O formato separado por ; (ponto e vírgula)
+       -  year;title;studios;producers;winner
+       -  1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
+       -  1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
+- 4- Na coluna producers vem mais de um producers e os separadores mapeados no projetos para quebrar são
+  - 4.1 Separadores and & , ; / caso usar outro será necessário tratar isso no arquivo utilServices.js 
 
 # Executar importação do arquivo CSV
  - 1.1 colocar o arquivo movielist.csv na raiz do projeto 
    - 1.1 IMPORTANTE!! o arquivo precisa ter esse nome ou a importação não ocorrerá
-   - 1.2 O arquivo CSV deve ter o  formato separado por ; (ponto e vírgula)
-       -  year;title;studios;producers;winner
-       -  1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
-       -  1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
 - 2 com o arquivo na pasta execute o comando abaixo
    - 2.1 npm start
-
 - 3 a importação ocorre em 4 etapas abaixo com  mensagem 5 de serviço disponível
    - 0- Iniciando validação do arquivo Csv existe
    - 1- Iniciando Limpeza das tabelas
