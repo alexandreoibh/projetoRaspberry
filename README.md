@@ -54,7 +54,6 @@ integração.
    # Tabelas
     - 1- banco por ser em memória perde os dados a cada reinicialização
     - 2- para segurar não duplicação de dados, as tabelas são excluidas na etapa 1 do processo
-<<<<<<< HEAD
 
 
 # Arquivo CSV
@@ -68,7 +67,6 @@ integração.
 - 4- Na coluna producers vem mais de um producers e os separadores mapeados no projetos para quebrar são
   - 4.1 Separadores and & , ; / caso usar outro será necessário tratar isso no arquivo utilServices.js 
 
-=======
 
 # Authenticação
 - 1- Existe uma autheticação básica para garantir um processo minimo de segurança nas rotas 
@@ -88,7 +86,6 @@ integração.
 - 4- Na coluna producers vem mais de um producers e os separadores mapeados no projetos para quebrar são
   - 4.1 Separadores and & , ; / caso usar outro será necessário tratar isso no arquivo utilServices.js 
 
->>>>>>> master
 # Executar importação do arquivo CSV
  - 1.1 colocar o arquivo movielist.csv na raiz do projeto 
    - 1.1 IMPORTANTE!! o arquivo precisa ter esse nome ou a importação não ocorrerá
