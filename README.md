@@ -31,6 +31,8 @@ integração.
 - │           └── movieModel.js # Modelos de dados e acesso ao banco
 - ├── config/
 - │   └── database.js # Configuração do banco de dados
+- ├── middlewares/
+- │   └── auth.js # Chave authenticação
 - ├── routes/
 - │   └── movieRoute.js # Definição das rotas
 - ├── services/
@@ -53,6 +55,12 @@ integração.
     - 1- banco por ser em memória perde os dados a cada reinicialização
     - 2- para segurar não duplicação de dados, as tabelas são excluidas na etapa 1 do processo
 
+# Authenticação
+- 1- Existe uma autheticação básica para garantir um processo minimo de segurança nas rotas 
+   # x-api-key no header 
+   - inclua uma chave no arquivo .env x-api-key para o acesso autenticado
+   - no header use x-api-key = chave do .env 
+   - no .env está default true obrigando o uso desse parametro no header
 
 # Arquivo CSV
 - 1- Nome padrão do arquivo deve ser movielist.csv
