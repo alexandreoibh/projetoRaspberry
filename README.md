@@ -93,10 +93,10 @@ http://localhost:3000/api/v1/movies/goldenAwards
 - arquivo deve ser inserido na raiz do projeto
 -  formato csv separado por ;
 
-```csv
+csv
 year;title;studios;producers;winner
 1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
----
+
 
 # Authenticação
 
