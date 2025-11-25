@@ -3,6 +3,8 @@
 - importa arquivo CSV com filmes e produtores na inicialização
 - organiza os dados e gera informação por produtor, com maior intervalo e menor entre vitórias
 - Existem 2 endpoints
+   - /goldenAwards -> exigido no desafio
+   - /movies -> lista de filmes importados para garantir os dados em banco
 
 # Como rodar o Projeto
 
@@ -45,7 +47,7 @@ http://localhost:3000
 
 # GET - Lista de filmes importados
 
-- http://localhost:3000/api/v1/movies?page=1&limit=10&orderBy=year
+- http://localhost:3000/api/v1/movies
 
 ```json
 {
@@ -70,6 +72,16 @@ http://localhost:3000
 
 # Testes
 
+- implementado testes de integração utilizando Jest e Supertest.
+- executa API com teste real em memória usando dados temporários nas tabelas
+- valida o endpoint /goldenAwards
+- valida regra de min e max do intervalo de vitórias e o formato de JSON proposto no desafio
+
+# Execução dos testes
+
+- npm test
+- durante o teste a importação CSV é desabilitada e autenticação x-api-key também
+
 # Banco de dados
 
 - utilizado banco SQLite em memória
@@ -79,6 +91,9 @@ http://localhost:3000
 
 - nome padrão do arquivo deve ser movielist.csv
 - arquivo deve ser inserido na raiz do projeto
+-  formato csv separado por ;
+year;title;studios;producers;winner
+1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
 
 # Authenticação
 
@@ -97,6 +112,7 @@ http://localhost:3000
 - ├── middlewares/
 - ├── routes/
 - ├── services/
+- ├── tests/
 - ├── movielist.csv
 
 # Autor
@@ -104,5 +120,3 @@ http://localhost:3000
 Alexandre Rodrigo da Silva
 alexandreoibh1@gmail.com
 31-987580336
-
-

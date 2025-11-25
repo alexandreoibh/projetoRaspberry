@@ -156,7 +156,7 @@ class movieModel {
 
     async getWinnersDasboard(condition) {
         try {
-            const sqlSelect = ` SELECT prod.producers, prod.interval, prod.previousWin, prod.followingWin
+            const sqlSelect = ` SELECT prod.producers as producer, prod.interval, prod.previousWin, prod.followingWin
                                 FROM producers_multi_winners prod
                                 WHERE interval = (SELECT ${condition}(interval) FROM producers_multi_winners)`;
 

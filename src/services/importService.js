@@ -133,36 +133,23 @@ class ImportarCsv {
 
     async executeService() {
         const csvPath = path.join(process.cwd(), 'movielist.csv');
-        console.log('--->Inicio Carga CSV - Processo de 4 Etapas');
-
-        console.log('1 - Iniciando validação do arquivo Csv existe');
+        
         const resultCsv = await this.validaArquivoCsvExiste(csvPath);
         if (!resultCsv.success) {
-            console.log('1.1 - Falha na carga do arquivo CSV existe:', resultCsv.message);
+            console.log('Falha na carga do arquivo CSV existe:', resultCsv.message);
             return false;
         }
-        console.log('1.1 - Concluido validação arquivo CSV');
-
-        console.log('2 - Iniciando carga do arquivo CSV');
-        console.log('--->Em andamento, aguarde...');
+        
         const resultImport = await this.cargaCsv(csvPath);
         if (!resultImport.success) {
-            console.log('2.1 - Falha na carga do arquivo CSV:', resultImport.message);
+            console.log('Falha na carga do arquivo CSV:', resultImport.message);
             return false;
         }
-        console.log('2.1 - Concluido carga do arquivo CSV', resultImport);
-
-        console.log('3 - Iniciando Tratamento de Produtores por Filme');
-        console.log('--->Em andamento, aguarde...');
+        
         await this.cargaProducerByMovie();
-        console.log('3.1 - Concluido Tratamento de Produtores por Filme');
-
-        console.log('4 - Iniciando carga do dashboard');
-        console.log('--->Em andamento, aguarde...');
+        
         await this.cargaDashboard();
-        console.log('4.1 - Concluido carga do dashboard');
-
-        console.log('5 - Serviço REST da Api Online e Disponível');    
+        
         return true;
     }
 

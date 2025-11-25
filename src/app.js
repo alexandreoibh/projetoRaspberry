@@ -11,9 +11,11 @@ global.appLoading = true;
 
 app.use('/api/v1/movies', movieRoutes);
 
-
-process.nextTick(() => {
-    csvImportService.executeService()
-        .then(() => global.appLoading = false)
-        .catch(() => global.appLoading = false);
-});
+if (process.env.NODE_ENV !== "test") {
+    process.nextTick(() => {
+        csvImportService.executeService()
+            .then(() => global.appLoading = false)
+            .catch(() => global.appLoading = false);
+    });
+}
+module.exports = app;
