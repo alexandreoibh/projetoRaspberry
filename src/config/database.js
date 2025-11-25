@@ -1,6 +1,5 @@
 const Database = require('better-sqlite3');
 const db = new Database(':memory:');
-// const db = new Database('debug.sqlite');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS movies (

@@ -2,44 +2,6 @@ const db = require('../../config/database');
 
 class movieModel {
 
-    async truncateMovies() {
-        try {
-            const sqlDelete = `DELETE FROM movies;
-                            DELETE FROM sqlite_sequence WHERE name = 'movies';
-                            VACUUM;`;
-            db.exec(sqlDelete);
-        } catch (error) {
-            console.error('Erro ao truncar tabela movies:', error);
-            throw error;
-        }
-    }
-
-    async truncateProducersMultiWinners() {
-        try {
-
-            const sqlDelete = `DELETE FROM producers_multi_winners;
-                         DELETE FROM sqlite_sequence WHERE name = 'producers_multi_winners';
-                         VACUUM;`;
-            db.exec(sqlDelete);
-
-        } catch (error) {
-            console.error('Erro ao truncar tabela producers_multi_winners:', error);
-            throw error;
-        }
-    }
-
-    async truncateMoviesProducers() {
-        try {
-            const sqlDelete = `DELETE FROM movies_producers;
-                            DELETE FROM sqlite_sequence WHERE name = 'movies_producers';
-                            VACUUM;`;
-            db.exec(sqlDelete);
-        } catch (error) {
-            console.error('Erro ao truncar tabela movies_producers:', error);
-            throw error;
-        }
-    }
-
     async createMovie(movielist) {
         try {
             const sqlInsert = `INSERT INTO movies (year, title, studios, producers, winner)

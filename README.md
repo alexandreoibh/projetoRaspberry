@@ -1,115 +1,54 @@
-# Requisito do teste  Golden Raspberry Awards API
-- Desenvolva uma API RESTful para possibilitar a leitura da lista de indicados e vencedores da 
-categoria Pior Filme do Golden Raspberry Awards. 
-- Ler o arquivo CSV dos filmes e inserir os dados em uma base de dados ao iniciar a aplicação. 
-- Obter o produtor com maior intervalo entre dois prêmios consecutivos, e o que obteve dois 
-prêmios mais rápido, seguindo a especificação de formato definida na página 2. 
+# Info da API
 
-# Requisitos não funcionais do sistema 
-1. O web service RESTful deve ser implementado com base no nível 2 de maturidade de 
-Richardson; 
-2. Devem ser implementados somente testes de integração. Eles devem garantir que os dados 
-obtidos estão de acordo com os dados fornecidos na proposta; 
-3. O banco de dados deve estar em memória utilizando um SGBD embarcado (por exemplo, H2). 
-Nenhuma instalação externa deve ser necessária; 
-4. A aplicação deve conter um readme com instruções para rodar o projeto e os testes de 
-integração. 
-5. O código-fonte deve ser disponibilizado em um repositório git (Github, Gitlab, Bitbucket, etc).
+- importa arquivo CSV com filmes e produtores na inicialização
+- organiza os dados e gera informação por produtor, com maior intervalo e menor entre vitórias
+- Existem 2 endpoints
 
+# Como rodar o Projeto
 
-# Rodar o Projeto
-- Node.js 16 ou acima
-- npm ou yarn
+- git clone https://github.com/alexandreoibh/projetoRaspberry.git
+- cd projetoRaspberry
+- npm install ou yarn
+- npm start
 
-# Arquitetura Projeto
-- ├── src/
-- │   │──app/
-- │       ├── controllers/ 
-- │            ├── helpers.js
-- │            └── movieController.js # Controladores das rotas
-- │       ├── models/
-- │           └── movieModel.js # Modelos de dados e acesso ao banco
-- ├── config/
-- │   └── database.js # Configuração do banco de dados
-- ├── middlewares/
-- │   └── auth.js # Chave authenticação
-- ├── routes/
-- │   └── movieRoute.js # Definição das rotas
-- ├── services/
-- │   ├── importService.js # Lógica de negócio (importação de CSV, etc.)
-- │   └── utilsServices.js
-- ├── movielist.csv  # Arquivo de dados (a ser colocado na raiz)
-- ├── app.js # Arquivo principal
-- ├── package.json
-- └── README.md
+A API ficará disponível em:
+http://localhost:3000
 
-# Instalação 
-- 1- Clone o projeto em seu computador
- - 1.1- git clone https://github.com/alexandreoibh/projetoRaspberry.git
- - 1.2- cd <diretorio>
- - 1.3- npm install
+# Endpoints
 
-# Banco de dados
-- 1- utilizado banco SQLite par atender os requisitos 
-   # Tabelas
-    - 1- banco por ser em memória perde os dados a cada reinicialização
-    - 2- para segurar não duplicação de dados, as tabelas são excluidas na etapa 1 do processo
+# GET - Produtores com resultado de maior e menor intervalo
 
+- Este é o endpoint principal exigido no teste técnico.
 
-# Arquivo CSV
-- 1- Nome padrão do arquivo deve ser movielist.csv
-- 2- Existe validação desse nome da importação, sendo diferente o processo é interrompido
-- 3- O padrão das colunas é importante MANTER conforme modelo abaixo
-  - 3.1 O formato separado por ; (ponto e vírgula)
-       -  year;title;studios;producers;winner
-       -  1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
-       -  1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
-- 4- Na coluna producers vem mais de um producers e os separadores mapeados no projetos para quebrar são
-  - 4.1 Separadores and & , ; / caso usar outro será necessário tratar isso no arquivo utilServices.js 
+- http://localhost:3000/api/v1/movies/goldenAwards
 
+```json
+{
+  "min": [
+    {
+      "producer": "Producer A",
+      "interval": 1,
+      "previousWin": 2008,
+      "followingWin": 2009
+    }
+  ],
+  "max": [
+    {
+      "producer": "Producer B",
+      "interval": 99,
+      "previousWin": 1900,
+      "followingWin": 1999
+    }
+  ]
+}
+```
 
-# Authenticação
-- 1- Existe uma autheticação básica para garantir um processo minimo de segurança nas rotas 
-   # x-api-key no header 
-   - inclua uma chave no arquivo .env x-api-key para o acesso autenticado
-   - no header use x-api-key = chave do .env 
-   - no .env está default true obrigando o uso desse parametro no header
+# GET - Lista de filmes importados
 
-# Arquivo CSV
-- 1- Nome padrão do arquivo deve ser movielist.csv
-- 2- Existe validação desse nome da importação, sendo diferente o processo é interrompido
-- 3- O padrão das colunas é importante MANTER conforme modelo abaixo
-  - 3.1 O formato separado por ; (ponto e vírgula)
-       -  year;title;studios;producers;winner
-       -  1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
-       -  1980;Cruising;Lorimar Productions, United Artists;Jerry Weintraub;
-- 4- Na coluna producers vem mais de um producers e os separadores mapeados no projetos para quebrar são
-  - 4.1 Separadores and & , ; / caso usar outro será necessário tratar isso no arquivo utilServices.js 
+- http://localhost:3000/api/v1/movies?page=1&limit=10&orderBy=year
 
-# Executar importação do arquivo CSV
- - 1.1 colocar o arquivo movielist.csv na raiz do projeto 
-   - 1.1 IMPORTANTE!! o arquivo precisa ter esse nome ou a importação não ocorrerá
-- 2 com o arquivo na pasta execute o comando abaixo
-   - 2.1 npm start
-- 3 a importação ocorre em 4 etapas abaixo com  mensagem 5 de serviço disponível
-   - 0- Iniciando validação do arquivo Csv existe
-   - 1- Iniciando Limpeza das tabelas
-   - 2- Iniciando carga do arquivo CSV
-   - 3- Iniciando Tratamento de Produtores por Filme
-   - 4- Iniciando carga do dashboard
-   - 5- Serviço REST da Api Online e Disponível
-
-- 4- após a conclusão da etapa lista uma mensagem de API disponível para consulta dos dados
-  validar a mensagem Service OnLine Port 3001 é importante para saber se está rodando 
-
-
-        
-# Endpoints da API
-# GET 
--  /api/v1/movies?page=1&limit=10&orderBy=year
--    └── criado para validar a carga do CSV, não contém a lista de filme tratada para um único produtor
-
- {
+```json
+{
   "total": 206,
   "limit": 10,
   "offset": 0,
@@ -127,34 +66,43 @@ integração.
     }
   ]
 }
+```
 
-            
-# GET
--   /api/v1/movies/goldenAwards
--   └── gera o resultado final para o requisito
+# Testes
 
-    {
-        "min": [
-            {
-            "producer": "Producer A",
-            "interval": 1,
-            "previousWin": 2008,
-            "followingWin": 2009
-            }
-        ],
-        "max": [
-            {
-            "producer": "Producer B",
-            "interval": 99,
-            "previousWin": 1900,
-            "followingWin": 1999
-            }
-        ]
-        }
+# Banco de dados
 
+- utilizado banco SQLite em memória
+- dados são recriados a cada inicialização da aplicação
 
+# Arquivo CSV
+
+- nome padrão do arquivo deve ser movielist.csv
+- arquivo deve ser inserido na raiz do projeto
+
+# Authenticação
+
+- uso de header: x-api-key
+- chave definida no .env
+- em programas como Postman/Insomnia, enviar no header
+- x-api-key: <sua_chave>
+
+# Arquitetura
+
+- ├── src/
+- │ │──app/
+- │ ├── controllers/
+- │ ├── models/
+- ├── config/
+- ├── middlewares/
+- ├── routes/
+- ├── services/
+- ├── movielist.csv
 
 # Autor
+
 Alexandre Rodrigo da Silva
 alexandreoibh1@gmail.com
 31-987580336
+
+
