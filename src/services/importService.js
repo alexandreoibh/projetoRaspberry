@@ -6,16 +6,6 @@ const movieModel = require('../app/models/movieModel');
 
 class ImportarCsv {
 
-    async truncateTables() {
-        try {
-            await movieModel.truncateMovies();
-            await movieModel.truncateMoviesProducers();
-            await movieModel.truncateProducersMultiWinners();
-        } catch (error) {
-            console.error('Erro ao truncar tabelas:', error);
-        }
-    }
-
     async validaArquivoCsvExiste(csvPath) {
         try {
             if (!fs.existsSync(csvPath)) {
@@ -84,7 +74,7 @@ class ImportarCsv {
                             await movieModel.createMovie(movies);
                             return resolve({
                                 success: true,
-                                message: `IMportado arquivo com  ${movies.length} linhas`,
+                                message: `Importado arquivo com  ${movies.length} linhas`,
                             });
                         } catch (error) {
                             reject(error);
@@ -143,40 +133,23 @@ class ImportarCsv {
 
     async executeService() {
         const csvPath = path.join(process.cwd(), 'movielist.csv');
-        console.log('--->Inicio Carga CSV - Processo de 4 Etapas');
-
-        console.log('0 - Iniciando validação do arquivo Csv existe');
+        
         const resultCsv = await this.validaArquivoCsvExiste(csvPath);
         if (!resultCsv.success) {
-            console.log('0.1 - Falha na carga do arquivo CSV existe:', resultCsv.message);
+            console.log('Falha na carga do arquivo CSV existe:', resultCsv.message);
             return false;
         }
-        console.log('0.1 - Concluido validação arquivo CSV');
-
-        console.log('1 - Iniciando Limpeza das tabelas');
-        await this.truncateTables();
-        console.log('1.1 - Concluido limpeza com sucesso');
-
-        console.log('2 - Iniciando carga do arquivo CSV');
-        console.log('--->Em andamento, aguarde...');
+        
         const resultImport = await this.cargaCsv(csvPath);
         if (!resultImport.success) {
-            console.log('2.1 - Falha na carga do arquivo CSV:', resultImport.message);
+            console.log('Falha na carga do arquivo CSV:', resultImport.message);
             return false;
         }
-        console.log('2.1 - Concluido carga do arquivo CSV', resultImport);
-
-        console.log('3 - Iniciando Tratamento de Produtores por Filme');
-        console.log('--->Em andamento, aguarde...');
+        
         await this.cargaProducerByMovie();
-        console.log('3.1 - Concluido Tratamento de Produtores por Filme');
-
-        console.log('4 - Iniciando carga do dashboard');
-        console.log('--->Em andamento, aguarde...');
+        
         await this.cargaDashboard();
-        console.log('4.1 - Concluido carga do dashboard');
-
-        console.log('5 - Serviço REST da Api Online e Disponível');    
+        
         return true;
     }
 
