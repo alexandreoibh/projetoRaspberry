@@ -14,7 +14,7 @@
 - npm start
 
 A API ficará disponível em:
-http://localhost:3000
+http://localhost:3000/api/v1/movies/goldenAwards
 
 # Endpoints
 
