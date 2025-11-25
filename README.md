@@ -117,6 +117,6 @@ year;title;studios;producers;winner
 
 # Autor
 
-Alexandre Rodrigo da Silva
-alexandreoibh1@gmail.com
-31-987580336
+- Alexandre Rodrigo da Silva
+- alexandreoibh1@gmail.com
+- 31-987580336
