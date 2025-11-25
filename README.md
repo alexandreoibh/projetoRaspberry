@@ -14,7 +14,7 @@
 - npm start
 
 A API ficará disponível em:
-http://localhost:3000
+http://localhost:3000/api/v1/movies/goldenAwards
 
 # Endpoints
 
@@ -92,8 +92,11 @@ http://localhost:3000
 - nome padrão do arquivo deve ser movielist.csv
 - arquivo deve ser inserido na raiz do projeto
 -  formato csv separado por ;
+
+```csv
 year;title;studios;producers;winner
 1980;Can't Stop the Music;Associated Film Distribution;Allan Carr;yes
+```
 
 # Authenticação
 
